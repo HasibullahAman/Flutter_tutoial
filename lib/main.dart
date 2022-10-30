@@ -116,21 +116,75 @@
 
 import 'package:flutter/material.dart';
 void main(){
-  runApp(
-    MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.greenAccent,
-        appBar:AppBar(
-          title: Text("I Am Rich"),
-          backgroundColor:Colors.blueGrey,
-        ),
-        body: Image(
-          image: AssetImage("../Hasibullah Aman-Pandas.png")
-        ),
-      )
-    ),
+  // runApp(
+  //   MaterialApp(
+  //     home: Scaffold(
+  //       backgroundColor: Colors.blueGrey,
+  //       appBar: AppBar(
+  //         title: Text("I Am Rich"),
+  //         backgroundColor:Colors.blueGrey[900],
+  //       ),
+  //       body:Center(child: Image(
+  //         image: AssetImage('images/dimond2.png'),
+  //       ),)
+  //     )
+  //   ),
+  runApp(MyApp()
   );
 }
+
+
+class MyApp extends StatefulWidget{
+  State<MyApp> createState() => _MyAppState();
+}
+class _MyAppState extends State<MyApp>{
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Hello"),
+      ),body: Row(
+      children: [
+        FloatingActionButton(child: Icon(Icons.add),onPressed: (){},),
+        ButtonBar(
+          alignment: MainAxisAlignment.center,
+          children: [
+            FloatingActionButton(onPressed: (){},child: Icon(Icons.person),),
+            SizedBox(width: 20,),
+            FloatingActionButton(onPressed: null,child: Text("Hi"),)
+          ],
+        ),
+        AlertDialog(
+          content: Text("Do you want to delete?"),
+          title: Text("Conframation"),
+          actions: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context,"Yes");
+              },child: Text("Yes"),),
+            ElevatedButton(onPressed:(){},child:Text("No"),)
+          ],
+        )
+      ],
+    ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
